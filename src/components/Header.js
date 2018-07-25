@@ -4,13 +4,22 @@ import {Link} from 'react-router-dom';
 class Header extends React.Component {
     render() {
         return (
-            <nav className="navbar navbar-light">
-                <div className="container">
-                    <Link to="/" className="logo">
-                        {this.props.appName.toLowerCase()}
-                    </Link>
+            <header>
+                <div className="d-flex">
+                    <div className="logoBox mr-auto">
+                        <Link to="/" className="logo">
+                            {this.props.appName.toLowerCase()}
+                        </Link>
+                    </div>
+                    <div className="headerNavBox">
+                        <nav>
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
-            </nav>
+            </header>
         );
     }
 }

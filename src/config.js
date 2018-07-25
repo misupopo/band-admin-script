@@ -1,6 +1,16 @@
 const defaultConfig = () => {
     return {
-        appName: 'band-admin-script'
+        appName: 'band-admin-script',
+        menu: [
+            {
+                title: 'Recruitment',
+                child: [
+                    {
+                        title: 'detail'
+                    }
+                ]
+            }
+        ]
     }
 };
 

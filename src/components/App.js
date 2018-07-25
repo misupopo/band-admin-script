@@ -1,16 +1,20 @@
 import agent from '../agent';
 import React, {Component} from 'react';
 import Header from './Header';
-import '../styles/App.scss';
+import MainContent from './MainContent';
+import SideMenu from './SideMenu';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../styles/App.css';
 import {connect} from 'react-redux';
 import {APP_LOAD, REDIRECT} from '../constants/actionTypes';
-import { Route, Switch } from 'react-router-dom';
-import { store } from '../store';
-import { push } from 'react-router-redux';
+import {Route, Switch} from 'react-router-dom';
+import {store} from '../store';
+import {push} from 'react-router-redux';
 
 const mapStateToProps = state => {
     return {
         appName: state.common.appName,
+        sideMenu: state.common.menu
     };
 };
 
@@ -39,9 +43,10 @@ class App extends Component {
                 <Header
                     appName={this.props.appName}
                 />
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
+                <div className="layout-container layoutContainerBox">
+                    <SideMenu sideMenu={this.props.sideMenu} />
+                    <MainContent />
+                </div>
             </div>
         );
     }

@@ -5,7 +5,11 @@ li {
 
 a {
     text-decoration: none;
-    color: $default-theme-color;
+    color: $default-link-color;
+
+    &:hover {
+        color: $default-link-color;
+    }
 }
 
 p {
@@ -13,7 +17,7 @@ p {
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 62.5% !important;
     -ms-text-size-adjust: 100%; /* 4 */
     -webkit-text-size-adjust: 100%; /* 5 */
 }

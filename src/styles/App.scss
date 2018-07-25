@@ -1,5 +1,7 @@
-@import 'styles/reset.scss';
-@import "styles/conf/conf.scss";
+@import 'reset';
+@import 'conf/conf.scss';
+@import 'header';
+@import 'layout';
 
 .App {
     text-align: center;

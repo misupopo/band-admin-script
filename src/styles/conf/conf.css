@@ -4,12 +4,14 @@ li {
 a {
   text-decoration: none;
   color: #72bb3b; }
+  a:hover {
+    color: #72bb3b; }
 
 p {
   line-height: 24px; }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5% !important;
   -ms-text-size-adjust: 100%;
   /* 4 */
   -webkit-text-size-adjust: 100%;
