@@ -7,12 +7,14 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 
 import App from './components/App';
+import Recruitment from './components/Recruitment/index';
 
 ReactDOM.render((
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <Switch>
-                <Route path="/" component={App} />
+                <Route exact path="/" component={App} />
+                <Route path="/recruitment" component={Recruitment} />
             </Switch>
         </ConnectedRouter>
     </Provider>

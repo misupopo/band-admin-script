@@ -50,7 +50,7 @@ class SideMenu extends React.Component {
                                             this.props.sideMenu[index].child.map((childData, childIndex) => {
                                                 return (
                                                     <li key={childIndex}>
-                                                        {childData.title}
+                                                        <a href="./recruitment"> {childData.title} </a>
                                                     </li>
                                                 );
                                             })
