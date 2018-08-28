@@ -6,7 +6,7 @@ import SideMenu from '../SideMenu';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../../styles/App.css';
 import {connect} from 'react-redux';
-import {APP_LOAD, REDIRECT} from '../../constants/actionTypes';
+import {RECRUITMENT_PAGE_LOADED, REDIRECT} from '../../constants/actionTypes';
 import {Route, Switch} from 'react-router-dom';
 import {store} from '../../store';
 import {push} from 'react-router-redux';
@@ -19,8 +19,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    onLoad: (payload, token) =>
-        dispatch({type: APP_LOAD, payload, token, skipTracking: true}),
+    onLoad: (payload) =>
+        dispatch({type: RECRUITMENT_PAGE_LOADED, payload}),
     onRedirect: () =>
         dispatch({type: REDIRECT}),
 });
@@ -28,14 +28,13 @@ const mapDispatchToProps = dispatch => ({
 class Recruitment extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.redirectTo) {
-            // this.context.router.replace(nextProps.redirectTo);
             store.dispatch(push(nextProps.redirectTo));
             this.props.onRedirect();
         }
     }
 
     componentWillMount() {
-        console.log('リクルート');
+        this.props.onLoad(agent.Recruitment.getList());
     }
 
     render() {

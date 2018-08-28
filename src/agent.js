@@ -86,11 +86,17 @@ const Profile = {
     requests.del(`/profiles/${username}/follow`)
 };
 
+const Recruitment = {
+    getList: () =>
+        requests.get('/recruitment/list'),
+}
+
 export default {
   Articles,
   Auth,
   Comments,
   Profile,
   Tags,
+    Recruitment,
   setToken: _token => { token = _token; }
 };
