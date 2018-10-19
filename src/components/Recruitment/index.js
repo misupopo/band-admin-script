@@ -12,7 +12,10 @@ import {store} from '../../store';
 import {push} from 'react-router-redux';
 
 const mapStateToProps = state => {
+
     return {
+        ...state,
+        recruitment: state.recruitment.recruitment,
         appName: state.common.appName,
         sideMenu: state.common.menu
     };
@@ -26,18 +29,30 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class Recruitment extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.redirectTo) {
+            console.log('redirect');
+
             store.dispatch(push(nextProps.redirectTo));
             this.props.onRedirect();
         }
     }
 
-    componentWillMount() {
-        this.props.onLoad(agent.Recruitment.getList());
+    async componentWillMount() {
+        this.props.onLoad(await agent.Recruitment.getList());
     }
 
     render() {
+        if (!this.props.recruitment) {
+            return <React.Fragment></React.Fragment>;
+        }
+
+        console.log(this.props.recruitment.pm2.app.appName);
+
         return (
             <div className="contentBox">
                 <Header
@@ -45,8 +60,10 @@ class Recruitment extends Component {
                 />
                 <div className="layout-container layoutContainerBox">
                     <SideMenu sideMenu={this.props.sideMenu} />
-                    <RecruitmentContent />リクルート
+                    <RecruitmentContent recruitment={this.props.recruitment}/>fsfsdfddfsdfs{this.props.recruitment.pm2.app.appName}
                 </div>
+                <div>ステータス</div>
+                <div>{this.props.recruitment.title}</div>
             </div>
         );
     }

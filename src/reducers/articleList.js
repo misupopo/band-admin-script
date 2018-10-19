@@ -13,6 +13,8 @@ import {
 } from '../constants/actionTypes';
 
 export default (state = {}, action) => {
+  console.log(action.type);
+
   switch (action.type) {
     case ARTICLE_FAVORITED:
     case ARTICLE_UNFAVORITED:

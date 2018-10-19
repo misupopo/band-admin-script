@@ -6,11 +6,15 @@ import {
 export default (state = {}, action) => {
     switch (action.type) {
         case RECRUITMENT_PAGE_LOADED:
+            console.log('action start');
+            console.log(action.payload);
+
             return {
                 ...state,
-                test: state.articles.map(data => {
-                    return data
-                }),
+                recruitment1: {
+                    title: 'test'
+                },
+                recruitment: action.payload,
             }
         default:
             return state
